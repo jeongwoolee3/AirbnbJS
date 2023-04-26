@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Single Page App</title>
-      <link rel="stylesheet"  href="styles/Header.css">
-    </head>
-    <body>
-        <header>
-          <div class="container">
-              <div class="logo">
-                <img src="Airbnb_Logo.png" alt="Airbnb">
-              </div>
-              <form class="search-from">
-                <input type="text" placeholder="여행은 살아보는거야" >
-                <button type="submit">검색</button>
-              </form>
-              <button class="hostRegistration">
-              </button>
-          </div>
-        </header>
-          <div class="category">
-      
-          <nav class="nav">
-              <a href="/" class="nav_item" data-link>Home</a>
-              <a href="/posts" class="nav_item" data-link>Posts</a>
-              <a href="/settings" class="nav_item" data-link>Settings</a>
-          </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single page app</title>
+    <link rel="stylesheet" href="./styles/Header.css">
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <img src="Airbnb_Logo.png" alt="Airbnb" />
         </div>
-		    <div id="root"></div>
-        <script type="module" src="./src/main.js"></script>
-    </body>
+        <div class="search">
+          <button class="innerButton">
+            <p>어디든지</p>
+
+          </button>
+          <button class="innerButton">
+            <p>언제든 일주일</p>
+          </button>
+          <button class="searchButton">
+            <p>검색</p>
+          </button>
+        </div>
+        <div class="userContext">
+          <button class="hostRegistration">
+            당신의 공간을 에어비앤비하세요
+          </button>
+          <img class="location" src="location.png" alt="Location"/>
+          <button class="login">
+            <img src="hamburgerButton.png" alt="registration">
+            <img src="avatar.png" alt="registration">
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="category">
+      <nav class="nav">
+        <a href="/" class="nav_item" data-link>Home</a>
+        <a href="/posts" class="nav_item" data-link>Posts</a>
+        <a href="/settings" class="nav_item" data-link>Settings</a>
+      </nav>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+
 </html>
