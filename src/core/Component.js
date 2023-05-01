@@ -4,7 +4,7 @@ export default class Component{
     $target;
     state;
     constructor ($target, props) {
-        this.$tartget = $target;
+        this.$target = $target;
         this.props = props;
         this.setup();
         this.render();
@@ -13,10 +13,10 @@ export default class Component{
 
     setup () {};
     mounted () {};
-    template () {return '';}
+    template () { return ''; }
     render () {
         this.$target.innerHTML = this.template();
-        this.mounted();
+        this.setEvent();
     }
     setEvent () {}
     setState (newState) {

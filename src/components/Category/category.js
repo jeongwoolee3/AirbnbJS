@@ -1,4 +1,4 @@
-import Component from "../../core/Component";
+import Component from "../../core/Component.js";
 
 export default class Category extends Component {
   setup() {
@@ -21,14 +21,25 @@ export default class Category extends Component {
             ${items.map(item =>item).join('')}
           </li>
         </ul>
+        <button class="nextButton">
+            <img src="../public/image/nextButton.png" alt="house">
+        </button>
       </nav>
+
     `
   }
 
   setEvent () {
-    this.$target.querySelector(".nextButton").addEventListener('click', ({target}) => {
-      const {itmes} = this.state;
-      this.setState({ items: [...itmes, `item${items.length + 5}` ] });
+    this.$target.querySelector('.nextButton').addEventListener('click', ({target}) => {
+      const {items} = this.state;
+      const item =
+      `
+      <button class="category">
+        <img src="../public/image/house.png" alt="house">
+        <p>새로 추가</p>
+      </button>
+      `
+      this.setState({ items: [...items, item ] });
     })
   }
 }

@@ -1,24 +1,33 @@
 
 nav {
   position: absolute;
+  display: flex;
+  left: 0px;
   width: 90%;
   top: 5rem;
   z-index: 1;
-  display: flex;
 }
 
 nav ul {
   display:flex;
+	width: 100%;
   list-style: none;
-  padding-left:0px;
+  align-items: center;
+  justify-content: space-around;
+
 }    
 
 nav ul li {
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 nav ul li .category{
+	margin-left: 10%;
   display: flex;
+	width: 60px;
   flex-direction: column;
   background-color:#FFFFFF;
   border:none;
@@ -37,7 +46,8 @@ nav ul li .category img{
 nav .nextButton{
   width: 30px;
   height: 30px;
-  display: flex;
+  display: inline-flex;
+	justify-self: center;
   align-items: center;
   background-color:#FFFFFF;
   border:none;
@@ -46,6 +56,7 @@ nav .nextButton{
 nav .nextButton img{
   width: 100%;
   margin-top: 15px;
+  align-self: center;
   transition: box-shadow 0.3s ease-in-out;
 }
 
@@ -53,3 +64,9 @@ nav .nextButton img:hover{
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
+nav .nextButton p{
+	display: inline-block;
+  font-size: 16px; 
+  width: auto;
+  font-size: 100%;
+}
