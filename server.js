@@ -5,10 +5,12 @@ const app = express();
 
 // Single page이기 때문에,
 // 모든 경로에서 index.html을 불러온다.
-app.use('/src',express.static(path.resolve(__dirname, "src")))
+// app.use('',express.static(path.resolve(__dirname, "src")))
+app.use(express.static(path.join(__dirname,"./")));
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "src", "index.html"));
+  // res.sendFile(path.resolve(__dirname, "src", "index.html"));
+  res.sendFile(path.join(__dirname,"./","index.html"));
 });
 
 

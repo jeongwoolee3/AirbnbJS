@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Single page app</title>
-    <link rel="stylesheet" href="./styles/Header.css">
+    <link rel="stylesheet" href="../src/styles/Header.css">
+    <link rel="stylesheet" href="../src/styles/SearchBar.css">
   </head>
-
   <body>
     <header>
       <div class="container">
         <div class="logo">
-          <img src="Airbnb_Logo.png" alt="Airbnb" />
+          <img src="../public/image/Airbnb_Logo.png" alt="Airbnb" />
         </div>
         <div class="search">
           <button class="innerButton">
@@ -30,23 +30,37 @@
           <button class="hostRegistration">
             당신의 공간을 에어비앤비하세요
           </button>
-          <img class="location" src="location.png" alt="Location"/>
+          <img class="location" src="../public/image/location.png" alt="Location"/>
           <button class="login">
-            <img src="hamburgerButton.png" alt="registration">
-            <img src="avatar.png" alt="registration">
+            <img src="../public/image/hamburgerButton.png" alt="registration">
+            <img src="../public/image/avatar.png" alt="registration">
           </button>
         </div>
       </div>
     </header>
-    <div class="category">
+    <nav>
+      <ul>
+        <li>
+          <button class="category">
+            <img src="../public/image/house.png" alt="house" >
+            <p>나도 갈래</p>
+          </button>
+        </li>
+      </ul>
+      <button class="nextButton">
+        <img src="../public/image/nextButton.png" alt="house">
+      </button>
+    </nav>
+    
+    <!-- <div class="category">
       <nav class="nav">
         <a href="/" class="nav_item" data-link>Home</a>
         <a href="/posts" class="nav_item" data-link>Posts</a>
         <a href="/settings" class="nav_item" data-link>Settings</a>
-      </nav>
-    </div>
-    <div id="root"></div>
-    <script type="module" src="./src/main.js"></script>
+      </nav> -->
+    <!-- </div> -->
+    <div id="app"></div>
+    <script type="module" src="./src/app.js"></script>
   </body>
 
 </html>
