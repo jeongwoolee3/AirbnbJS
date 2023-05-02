@@ -7,8 +7,10 @@
     <title>Single page app</title>
     <link rel="stylesheet" href="../src/styles/Header.css">
     <link rel="stylesheet" href="../src/styles/SearchBar.css">
+    <link rel="stylesheet" href="../src/styles/ListingCard.css">
   </head>
   <body>
+
     <header>
       <div class="container">
         <div class="logo">
@@ -40,7 +42,41 @@
     </header>
     <div id="app"></div>
     <script type="module" src="./src/app.js"></script>
-    
+    <div class="listingContainer">
+      <div class="grid">
+        <div class="grid-item">
+          <img src="https://picsum.photos/id/1018/500/500?random=1" alt="Image 1">
+          <div class="overlay">
+            <div class="overlay-content">
+              <button class="btn">Prev</button>
+              <button class="btn">Next</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-item">
+          <img src="https://picsum.photos/id/1018/500/500?random=2" alt="Image 1">
+          <div class="overlay">
+            <div class="overlay-content">
+              <button class="btn">Prev</button>
+              <button class="btn">Next</button>
+              <!-- <a href="#" class="btn">Explore now</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="grid-item">
+          <img src="https://picsum.photos/id/1018/500/500" alt="Image 1">
+          <div class="overlay">
+            <div class="overlay-content">
+              <button class="btn">Prev</button>
+              <button class="btn">Next</button>
+              <!-- <a href="#" class="btn">Explore now</a> -->
+            </div>
+          </div>
+      </div>
+    </div>
+
   </body>
 
 </html>

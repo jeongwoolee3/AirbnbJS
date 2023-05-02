@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.wapper{
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   display: flex;
   align-items: center;
