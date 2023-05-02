@@ -16,4 +16,17 @@ export default class Category extends Component {
         `
         this.state = { items: new Array(4).fill(item) };
     }
+
+    template() {
+        const { items } = this.state;
+        return `
+        	<div class="listingContainer">
+						<div class="grid">
+              ${items.map(item =>item).join('')}
+            </div>
+          </div>
+    
+        `
+      }
+    
 }
