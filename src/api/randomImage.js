@@ -28,7 +28,6 @@ const getRandomImage = () =>{
     }
 
     return imageUrls;
-    console.log(imageUrls); 
 }
 
 export default getRandomImage
