@@ -1,7 +1,9 @@
 import Category from "./components/Category/category.js";
+import ListingCard from "./components/ListingCard/listCard.js";
+import Component from "./core/Component.js";
 
 
-export default class App{
+export default class App extends Component{
   
     // template () {
     //     return `
@@ -18,11 +20,30 @@ export default class App{
     //     })
     // }
 
-    constructor() {
-        const $app = document.querySelector('#app');
-        new Category($app);
+    template() {
+        return `
+            <nav data-component="categroy"></nav>
+            <div class="listingContainer" data-component="listingCard"></div>
+        
+        `;
     }
 
-}
+    mounted() {
+        const $category = this.$target.querySelector('[data-component="categroy"]');
+        const $listingCard = this.$target.querySelector('[data-component="listingCard"]');
 
-new App();
+        
+        new Category($category);
+        new ListingCard($listingCard);
+
+
+    }
+
+    // constructor() {
+    //     const $app = document.querySelector('#app');
+    //     new Category($app);
+    //     new ListingCard($app);
+        
+    // }
+
+}

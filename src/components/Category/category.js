@@ -15,7 +15,6 @@ export default class Category extends Component {
   template() {
     const { items } = this.state;
     return `
-      <nav>
         <ul>
           <li>
             ${items.map(item =>item).join('')}
@@ -24,13 +23,13 @@ export default class Category extends Component {
         <button class="nextButton">
             <img src="../public/image/nextButton.png" alt="house">
         </button>
-      </nav>
 
     `
   }
 
   setEvent () {
     this.$target.querySelector('.nextButton').addEventListener('click', ({target}) => {
+      console.log('hi')
       const {items} = this.state;
       const item =
       `

@@ -1,20 +1,61 @@
 import Component from "../../core/Component.js";
+import getRandomImage from "../../api/randomImage.js";
 
-export default class Category extends Component {
+
+
+const ItemGenerator = (index) => {
+	return `
+	<div class="grid-item">
+		<div class="itemImg">
+			<img src="https://picsum.photos/500/500?random=${indx}" alt="Image 1">
+		</div>
+		<div class="itemImg">
+			<img src="https://picsum.photos/500/500?random=2" alt="Image 1">
+		</div>
+		<div class="itemImg">
+			<img src="https://picsum.photos/500/500?random=3" alt="Image 1">
+		</div>
+		<div class="overlay">
+			<div class="overlay-content"> 
+				<button class="prevImgBtn">Prev</button>
+				<button class="nextImgBtn">Next</button>
+			</div>
+		</div>
+	</div>
+	`;
+
+}
+
+export default class ListingCard extends Component {
 
     setup() {
-        const item = `
-        <div class="grid-item">
-          <img src="https://picsum.photos/id/1018/500/500" alt="Image 1">
-          <div class="overlay">
-            <div class="overlay-content">
-              <button class="btn">Prev</button>
-              <button class="btn">Next</button>
-            </div>
-          </div>
-        </div>
-        `
-        this.state = { items: new Array(4).fill(item) };
+
+			const imageUrls = getRandomImage();
+			
+			const item = imageUrls.map((url) => {
+				return(`
+				<div class="grid-item">
+					<div class="itemImg">
+						<img src=${url[0]} alt="Image 1">
+					</div>
+					<div class="itemImg">
+						<img src=${url[1]} alt="Image 2">
+					</div>
+					<div class="itemImg">
+						<img src=${url[2]} alt="Image 3">
+					</div>
+					<div class="overlay">
+						<div class="overlay-content"> 
+							<button class="prevImgBtn">Prev</button>
+							<button class="nextImgBtn">Next</button>
+						</div>
+					</div>
+				</div>
+				`);
+		
+			})
+
+        this.state = { items: item};
     }
 
     template() {
@@ -29,4 +70,65 @@ export default class Category extends Component {
         `
       }
     
+		setEvent () {
+
+			const prevImgBtn = document.querySelector('.prevImgBtn:first-of-type');
+			const nextImgBtn = document.querySelector('.nextImgBtn:last-of-type');
+			const itemImg = document.querySelectorAll('.itemImg');
+			const scroll = document.documentElement.scrollTop;
+
+			let currentPosition = 0;
+			const maxPosition = itemImg.length - 1;
+
+			prevImgBtn.addEventListener('click', () => {
+				if (currentPosition > 0) {
+					currentPosition--;
+					itemImg.forEach((img) => {
+						img.style.transform = `translateX(-${currentPosition * 100}%)`;
+					});
+				}
+			});
+
+			nextImgBtn.addEventListener('click', () => {
+				console.log(scroll);
+				if (currentPosition < maxPosition) {
+					currentPosition++;
+					itemImg.forEach((img) => {
+						img.style.transform = `translateX(-${currentPosition * 100}%)`;
+					});
+				}
+			});
+
+			document.addEventListener('scroll', () => {
+				if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+					const {items} = this.state;
+					const imageUrls = getRandomImage();
+			
+					const item = imageUrls.map((url) => {
+							return(`
+							<div class="grid-item">
+								<div class="itemImg">
+									<img src=${url[0]} alt="Image 1">
+								</div>
+								<div class="itemImg">
+									<img src=${url[1]} alt="Image 2">
+								</div>
+								<div class="itemImg">
+									<img src=${url[2]} alt="Image 3">
+								</div>
+								<div class="overlay">
+									<div class="overlay-content"> 
+										<button class="prevImgBtn">Prev</button>
+										<button class="nextImgBtn">Next</button>
+									</div>
+								</div>
+							</div>
+							`);
+					})
+					this.setState({ items: [...items, item.join('')] });
+					
+				}
+			})
+
+	 }
 }
